@@ -1,0 +1,104 @@
+<div class="container-fluid bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-sm table-hover">
+                <thead>
+                    <tr id="head">
+                        <th scope="col">
+                            <div style="cursor: pointer;" (click)="sort('name')">
+                                Name
+                                <!-- <div class="arrow-down" onclick="this.classList.toggle('active')">
+                                </div> -->
+                                <img *ngIf="!filterNTClickedName"
+                                    src=" assets\pic\up-and-down-opposite-double-arrows-side-by-side.png"
+                                    style="height: 15px; opacity: .5;" alt="arrow-up">
+                                <img *ngIf="!filterToggleName && filterNTClickedName" src=" assets\pic\up-arrow.svg"
+                                    style="height: 15px;" alt="arrow-up">
+                                <img *ngIf="filterToggleName  && filterNTClickedName" src="assets\pic\down-arrow.svg"
+                                    style="height: 15px;" alt="arrow-down">
+                            </div>
+                        </th>
+                        <th scope="col">
+                            <div style="cursor: pointer;" (click)="sort('age')">
+                                Age
+                                <img *ngIf="!filterNTClickedAge"
+                                    src=" assets\pic\up-and-down-opposite-double-arrows-side-by-side.png"
+                                    style="height: 15px; opacity: .5;" alt="arrow-up">
+                                <img *ngIf="!filterToggleAge && filterNTClickedAge" src=" assets\pic\up-arrow.svg"
+                                    style="height: 15px;" alt="arrow-up">
+                                <img *ngIf="filterToggleAge  && filterNTClickedAge" src="assets\pic\down-arrow.svg"
+                                    style="height: 15px;" alt="arrow-down">
+                            </div>
+                        </th>
+                        <th scope="col">
+                            <div style="cursor: pointer;" (click)="sort('skills')">
+                                Skills
+                                <img *ngIf="!filterNTClickedSkills"
+                                    src=" assets\pic\up-and-down-opposite-double-arrows-side-by-side.png"
+                                    style="height: 15px; opacity: .5;" alt="arrow-up">
+                                <img *ngIf="!filterToggleSkills && filterNTClickedSkills" src=" assets\pic\up-arrow.svg"
+                                    style="height: 15px;" alt="arrow-up">
+                                <img *ngIf="filterToggleSkills  && filterNTClickedSkills"
+                                    src="assets\pic\down-arrow.svg" style="height: 15px;" alt="arrow-down">
+                            </div>
+                        </th>
+                        <th scope="col">
+                            <div style="cursor: pointer;" (click)="sort('designation')">
+                                Designation
+                                <img *ngIf="!filterNTClickedDesignation"
+                                    src=" assets\pic\up-and-down-opposite-double-arrows-side-by-side.png"
+                                    style="height: 15px; opacity: .5;" alt="arrow-up">
+                                <img *ngIf="!filterToggleDesignation && filterNTClickedDesignation"
+                                    src=" assets\pic\up-arrow.svg" style="height: 15px;" alt="arrow-up">
+                                <img *ngIf="filterToggleDesignation  && filterNTClickedDesignation"
+                                    src="assets\pic\down-arrow.svg" style="height: 15px;" alt="arrow-down">
+                            </div>
+                        </th>
+                        <th scope="col">
+                            <div style="cursor: pointer;" (click)="sort('address')">
+                                Address
+                                <img *ngIf="!filterNTClickedAddress"
+                                    src=" assets\pic\up-and-down-opposite-double-arrows-side-by-side.png"
+                                    style="height: 15px; opacity: .5;" alt="arrow-up">
+                                <img *ngIf="!filterToggleAddress && filterNTClickedAddress"
+                                    src=" assets\pic\up-arrow.svg" style="height: 15px;" alt="arrow-up">
+                                <img *ngIf="filterToggleAddress  && filterNTClickedAddress"
+                                    src="assets\pic\down-arrow.svg" style="height: 15px;" alt="arrow-down">
+                            </div>
+                        </th>
+                        <th scope="col">
+                            <div>
+                                Action
+
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let developer of developers">
+                        <td class="name">{{developer.name}}
+                        </td>
+                        <td>{{developer.age}}</td>
+                        <td>{{developer.skills}}</td>
+                        <td>{{developer.designation}}</td>
+                        <td>{{developer.address}}</td>
+                        <td>
+                            <div class="d-flex">
+                                <div class=" p-2">
+                                    <button type="button" class="btn btn-info mx-1" [routerLink]="['/edit',
+                                         developer.id]">Edit</button>
+                                    <button type="button" class="btn btn-danger"
+                                        (click)="deleteDeveloper(developer)">Delete</button>
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+</div>
